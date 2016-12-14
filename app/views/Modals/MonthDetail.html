@@ -1,0 +1,29 @@
+<div class="month_detail">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <i class="fa fa-globe"></i>
+    <div class="items">
+      <span>
+        Overview
+      </span>
+      <span class="selected">
+        Detail
+      </span>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="detail" ng-repeat="item in selectedMonth.list">
+        <div class="item">
+        <i class="fa fa-tree"></i>
+      </div>
+      <div class="item">{{item.start_time|cmdate:'MMM dd, yyyy'}}</div>
+      <div class="item">{{(item.duration/60)| number:2}} min</div>
+      <div class="item">{{(item.total_distance/1609.34)| number:2}} miles</div>
+      <div class="item">{{((item.duration/60.0)/(item.total_distance/1609.34))| pace}}/mi</div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <i class="fa fa-user"></i>
+  </div>
+</div>
+</div>

@@ -1,0 +1,31 @@
+<!--Start Navigation Bar-->
+<div scroll scrolly="1" class="header_bar" ng-class="{min:boolChangeClass}" role="navigation">
+	<div class="container-fluid" >
+
+		<!--Desktop Header-->
+		<div class="row" ng-show="!header_search">
+			<div class="logo"  ng-click="showSearch()">
+				<i class="fa fa-heartbeat"></i>
+			</div>
+			<div class="links" >
+				<div class="row">
+
+				</div>
+			</div>
+			<div class="search" ng-show="!header_search">
+				<div class="center vertical" style="right:30px;">
+				<i class="fa fa-search clickable" ng-click="showSearch()"></i>
+			</div>
+			</div>
+		</div>
+			<div class="row lg" ng-show="header_search">
+		<div class="search_input" >
+			<input placeholder="Type and Hit Enter" ng-model="search.query"/>
+				<i ng-click="showSearch()" class="fa fa-close clickable"></i>
+		</div>
+	</div>
+
+
+	</div>
+
+</div>

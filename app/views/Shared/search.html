@@ -1,0 +1,17 @@
+<div scroll scrolly="1" class="site_search" ng-class="{min:boolChangeClass}" ng-click="showSearch();$event.stopPropagation()">
+  <div class="result" ng-repeat="result in Data.Sitemap|filter:search.query" href="https://jfsapp.com{{result.URL}}" ng-click="$event.stopPropagation()">
+
+
+    <img src="https://jfsapp.com{{result.Thumbnail}}"/>
+    <div class="text">
+      <div class="title">
+        <span ng-bind-html="result.PageTitle|highlight:search.query"></span>
+      </div>
+      <div class="description">
+        <span ng-bind-html="result.Description|highlight:search.query"></span>
+      </div>
+    </div>
+
+</div>
+
+</div>

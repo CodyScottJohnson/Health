@@ -1,0 +1,133 @@
+.DownArrow {
+  bottom: 40px;
+  border: 2px solid fade(darken(@color-primary-0,10%),50%);
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  @media only screen and (max-device-width :400px),(max-width: 400px) {
+    border: none;
+    height: 10px;
+    width: 10px;
+  }
+
+  i {
+    color: fade(darken(@color-primary-0,10%),50%)!important;
+    font-size: 89px;
+    position: absolute;
+    top: -31px;
+    left: 12px;
+    @media only screen and (max-device-width :400px),(max-width: 400px) {
+      font-size: 40px;
+      .center.both;
+    }
+  }
+}
+.DarkBar{
+  width:100%;
+  overflow: hidden;
+  background-color: @color-primary-4;
+  text-align: center;
+  display: block;
+  position: relative;
+  .col-md-4{
+    height:100%;
+    margin:0!important;
+    padding:0!important;
+    min-height: 500px;
+    //left:0!important;
+    //right:0!important;
+  }
+  .banner{
+
+    width:200px;
+    height:200px;
+    padding:10px;
+    .center.horizontal;
+    .BoxShadowHelper(2);
+    border-radius:100%;
+    background-color: #21D8DE;//@color-secondary-2-0;
+    img{
+      max-height:90%;
+      max-width:90%;
+      .center;
+      .both;
+    }
+    i{
+      .center;
+      .both;
+      color:darken(@color-secondary-2-0,60%);
+    }
+  }
+  .panel{
+    .Font_Header;
+    .clickable;
+    background-color: @color-primary-4;
+    text-align: center;
+    height:500px;
+    padding-top: 40px;
+    color:#FFFFFF;
+    font-size:30px;
+    font-weight: 400;
+
+    //.animateLeave(flipOutY,1s);
+    .animateEnter(flipInY,2s);
+    &.detail{
+      .Font_Body;
+      position:absolute;
+      top:0;
+      background-color: white;
+      padding:50px;
+      font-size:20px;
+      z-index:99!important;
+      .animateEnter(flipInY,2s);
+      .animateLeave(flipOutY,1s);
+    }
+    i{
+      font-size: 100px;
+    }
+    .title{
+      margin-top:250px;
+      max-width:300px;
+      width:90%;
+      .center.horizontal;
+    }
+  }
+  .center_panel{
+    .panel;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+    z-index:99!important;
+    display: block;
+    li{
+      text-align: left!important;
+    }
+
+    .banner{
+      //background-color: darken(@color-secondary-2-0,10%);
+    }
+    i{
+      font-size: 100px;
+    }
+  }
+  .left_panel{
+    .panel;
+
+    .banner{
+      background-color: #FFD55C;//@color-secondary-2-2;
+    }
+  }
+  .right_panel{
+    .panel;
+    display: block;
+    z-index: 2!important;
+    .banner{
+      background-color: #FF6D3B;//@color-secondary-2-2;
+    }
+  }
+}
+.icon_detail{
+ .Font_Body;
+ padding:50px;
+ color:@gray;
+ font-size:30px;
+}

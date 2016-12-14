@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default" fullscreen="monthViewFullscreen">
+        <div class="panel-heading" style="display:block">
+          <h3 ng-click="monthViewFullscreen=!monthViewFullscreen">{{MonthDisplay.title}} by Month</h3>
+         <div class="btn-group right_buttons" role="group" aria-label="..." >
+            <button type="button" ng-click="MonthDisplay={key:['Month_Runs'],title:'Number of Runs'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Runs'}">Runs</button>
+            <button type="button" ng-click="MonthDisplay={key:['Month_Distance'],title:'Distance in Miles'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Distance'}">Distance</button>
+            <button type="button" ng-click="MonthDisplay={key:['Month_Avg_Pace'],title:'Average Pace'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Avg_Pace'}">Pace</button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div area-chart area-data='RunsByMonth' area-xkey='Label' area-ykeys='MonthDisplay.key' area-labels='[MonthDisplay.title]' area-resize='true' area-clickfunction='MonthDetail' line-colors='colors'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="month_detail" ng-style="selectedMonth.style" ng-include="'views/Modals/MonthDetail.html'">
+
+</div>
