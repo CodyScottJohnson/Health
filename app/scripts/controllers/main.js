@@ -10,19 +10,24 @@
 angular.module('Health')
   .controller('MainCtrl', function ($scope, $document,Data,Functions, Running,$window) {
     $scope.selectedMonth = {style:{"left":"932px","top":"294px"}};
-    console.log($scope.selectedMonth);
+    $scope.showMonthPanel = false;
     Running.getRunDataMonthDetail().then(function(data){ $scope.selectedMonth.list = data;});
+
     $scope.MonthDetail = function(i,row,x,y){
-      console.log(i,row,x,y);
-      console.log($window.innerWidth);
+      console.log(row)
+      Running.getRunDataMonthDetail(row.Year,row.Month).then(function(data){
+      $scope.selectedMonth.list = data;
+      $scope.showMonthPanel = true;
       if(x+500 > $window.innerWidth){
         x = $window.innerWidth - 500;
       }
       $scope.selectedMonth.style['left'] = x+'px';
       $scope.selectedMonth.style['top'] = y+'px';
-      $scope.$apply();
-      console.log($scope.selectedMonth);
-
+      //$scope.$apply();
+      });
+    };
+    $scope.hideMonthPanel = function(){
+      $scope.showMonthPanel = false;
     }
     $scope.MonthDisplay={key:['Month_Runs'],title:'Number of Runs'};
           $scope.changeMonthView = function() {

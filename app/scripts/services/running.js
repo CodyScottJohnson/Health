@@ -24,11 +24,11 @@ angular.module('Health')
       });
       return deferred.promise;
     };
-    Running.getRunDataMonthDetail = function() {
+    Running.getRunDataMonthDetail = function(year,month) {
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/Detail',
+        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/Detail/'+year+'/'+month,
       }).then(function(data) {
         deferred.resolve(data.data);
       }, function(error) {
