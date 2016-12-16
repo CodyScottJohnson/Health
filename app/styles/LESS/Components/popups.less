@@ -3,6 +3,18 @@
   left:0;
   top:0;
   position: absolute!important;
+  .detail_header{
+    background:#FFFFFF;
+    z-index:9!important;
+    .BoxShadowHelper(1);
+    .item{
+      padding:20px 10px 20px 10px;
+      display: inline-block;
+      font-size: 15px;
+      width:19%
+
+    }
+  }
   .detail{
     padding-left:40px;
     .clickable;
@@ -13,6 +25,16 @@
       padding:20px 10px 20px 10px;
       display: inline-block;
       font-size: 15px;
+    }
+  }
+  .graphs{
+    display: block;
+    position: relative;
+    width:500px;
+    height:500px;
+    .chart{
+      //height:200px!important;
+    //  width:100%!important;
     }
   }
 }

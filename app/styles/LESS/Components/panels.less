@@ -1,6 +1,54 @@
+
+.panel-primary{
+  .Font_Body;
+  border:none;
+  color:#8f8f8f;
+  background: fade(#ffffff,85%);
+  border-radius: 12px;
+  .BoxShadowHelper(5);
+  .panel-body{
+    padding-top: 20px!important;
+    width:100%;
+    height:500px;
+    .scrollbar;
+    padding:0;
+  }
+  .panel-heading{
+    border:none;
+    font-size:15px;
+    color:#8f8f8f;
+    background-image: linear-gradient(0deg, #e5e5e5 0%; #f6f6f6 100%);
+    box-shadow:0 2px 4px 0 fade(black,20%),inset 0 1px 0 0 #ffffff;
+    border-radius: 12px 12px 0 0;
+    display: block;
+    position: relative;
+
+    .items{
+      .center.both;
+      span{
+        .clickable;
+        padding:10px;
+        &.selected{
+        background: -webkit-linear-gradient(-45deg, #FD8d68 0%,#f97072 38%, darken(#f97072,5%) 100%);
+        background-image:linear-gradient(-45deg, #FD8d68 0%,#f97072 38%, darken(#f97072,5%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+          border-bottom: 3px solid #FD8d68;
+        };
+
+      }
+    }
+  }
+  .panel-footer{
+    background: #f6f6f6;
+    box-shadow:0 -1px 0 0 fade(black,10%),inset 0 1px 0 0 #ffffff;
+    border-radius:0 0 12px 12px;
+
+  }
+}
 .panel-default {
   background: none;
-  background-color: fade(#FFFFFF,50%);
+  background-color: fade(#FFFFFF,80%);
   .BoxShadowHelper(5);
   .panel-heading {
     .Font_Body;
@@ -32,48 +80,5 @@
         }
       }
     }
-  }
-}
-.panel-primary{
-  .Font_Body;
-  border:none;
-  color:#8f8f8f;
-  background: fade(#ffffff,85%);
-  border-radius: 12px;
-  .BoxShadowHelper(5);
-  .panel-body{
-    width:100%;
-    padding:0;
-  }
-  .panel-heading{
-    border:none;
-    font-size:15px;
-    color:#8f8f8f;
-    background-image: linear-gradient(0deg, #e5e5e5 0%; #f6f6f6 100%);
-    box-shadow:0 2px 4px 0 fade(black,20%),inset 0 1px 0 0 #ffffff;
-    border-radius: 12px 12px 0 0;
-    display: block;
-    position: relative;
-
-    .items{
-      .center.both;
-      span{
-        &.selected{
-        background: -webkit-linear-gradient(-45deg, #FD8d68 0%,#f97072 38%, darken(#f97072,5%) 100%);
-        background-image:linear-gradient(-45deg, #FD8d68 0%,#f97072 38%, darken(#f97072,5%) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-          border-bottom: 3px solid #FD8d68;
-        };
-        padding:10px;
-
-      }
-    }
-  }
-  .panel-footer{
-    background: #f6f6f6;
-    box-shadow:0 -1px 0 0 fade(black,10%),inset 0 1px 0 0 #ffffff;
-    border-radius:0 0 12px 12px;
-
   }
 }

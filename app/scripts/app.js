@@ -39,9 +39,9 @@ angular.module('Health').config(function($urlMatcherFactoryProvider,$stateProvid
       }
 
     })
-    .state('app.Home', {
+    .state('app.Running', {
       url: '/',
-      templateUrl: 'views/Pages/home.html',
+      templateUrl: 'views/Pages/Running/dashboard.html',
 
     })
     .state('app.Apply', {

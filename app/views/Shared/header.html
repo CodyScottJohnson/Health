@@ -4,8 +4,8 @@
 
 		<!--Desktop Header-->
 		<div class="row" ng-show="!header_search">
-			<div class="logo"  ng-click="showSearch()">
-				<i class="fa fa-heartbeat"></i>
+			<div class="logo clickable"  ng-click="showSearch()">
+				<i class="fa fa-heartbeat clickable" ng-click="updateAll()"></i>
 			</div>
 			<div class="links" >
 				<div class="row">
@@ -14,7 +14,7 @@
 			</div>
 			<div class="search" ng-show="!header_search">
 				<div class="center vertical" style="right:30px;">
-				<i class="fa fa-search clickable" ng-click="showSearch()"></i>
+				<i class="fa fa-search clickable" ng-click="updateAll()"></i>
 			</div>
 			</div>
 		</div>

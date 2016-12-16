@@ -8,22 +8,31 @@
  * Controller of the jfsPublicApp
  */
 angular.module('Health')
-  .controller('MainCtrl', function ($scope, $document,Data,Functions, Running,$window) {
-    $scope.selectedMonth = {style:{"left":"932px","top":"294px"}};
+  .controller('MainCtrl', function ($scope, $document,Data,Functions, Running,$window, $timeout) {
+    $scope.selectedMonth = {style:{"left":"932px","top":"294px"},state:'detail'};
     $scope.showMonthPanel = false;
     Running.getRunDataMonthDetail().then(function(data){ $scope.selectedMonth.list = data;});
-
+    $scope.drawMonthGraphs = function(){
+      $timeout(function() {
+        $scope.selectedMonth.draw = !$scope.selectedMonth.draw
+      }, 10);
+    }
     $scope.MonthDetail = function(i,row,x,y){
       console.log(row)
       Running.getRunDataMonthDetail(row.Year,row.Month).then(function(data){
-      $scope.selectedMonth.list = data;
       $scope.showMonthPanel = true;
+      $scope.selectedMonth.list = data;
+
       if(x+500 > $window.innerWidth){
         x = $window.innerWidth - 500;
       }
       $scope.selectedMonth.style['left'] = x+'px';
       $scope.selectedMonth.style['top'] = y+'px';
       //$scope.$apply();
+
+      $timeout(function() {
+        $scope.selectedMonth.draw = !$scope.selectedMonth.draw
+      }, 10);
       });
     };
     $scope.hideMonthPanel = function(){
