@@ -12,11 +12,11 @@ angular.module('Health')
     // Service logic
     // ...
     var Functions = {};
-    Functions.OpenModal = function(modalname,size,data,options){
+    Functions.OpenModal = function(modalname,size,data,ctrl,options){
     var default_options = {
      animation: true,
      templateUrl: modalname,
-     controller: 'ModalCtrl',
+     controller: ctrl,
      size: size,
      resolve: {
        items: function () {

@@ -1,0 +1,60 @@
+<div class="modal-body">
+    <div class="panel panel-modal" style="height:100%;width:100%" fullscreen="detailHeartRateFullscreen">
+        <div class="panel-heading">
+            <h3>{{items.start_time|cmdate:'MMM dd, yyyy'}}</h3>
+            <span style="font-size:20px;position:absolute;right:10px;top:10px"><i ng-click="detailHeartRateFullscreen=!detailHeartRateFullscreen" class="fa fa-expand clickable"></i></span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6" >
+                    <div style="height:400px;border-radius:20px;overflow:hidden" id="google-maps"></div>
+                </div>
+                <div ng-init="goals=[160,180]" class="col-md-6" >
+                  <div class="row run_stats">
+                    <div class="col-md-3 stat">
+                      <i class="fa fa-heartbeat"></i> {{items.average_heart_rate}}
+                    </div>
+                    <div class="col-md-3 stat">
+                      <i class="ion-android-stopwatch"></i> {{((items.duration/60.0)/(items.total_distance/1609.34))| pace}}/mi
+                    </div>
+                    <div class="col-md-3 stat">
+                      <i class="ion-ios-clock"></i> {{(items.duration/60.0)| pace}}
+                    </div>
+                    <div class="col-md-3 stat">
+                      <i class="fa fa-road"></i> {{(items.total_distance/1609.34)| number: 2 }}
+                    </div>
+                  </div>
+                  <div class="row scrollbar run_chart_list" style="padding-top:20px;height:500px;padding-left:5px;padding-right:5px;padding-bottom:400px">
+                    <div class="panel" style="background-color:rgba(181, 117, 117, .2)">
+                        <div class="panel-heading">
+                            <h5 ng-click="detailHeartRateFullscreen=!detailHeartRateFullscreen" style="margin-left:auto;margin-right:auto">Heart Rate</h5>
+                        </div>
+                        <div style="height:150px" area-chart area-data='graphs.heart_rate' area-xkey='timestamp' area-ykeys='["heart_rate"]' area-labels='["Heart Rate"]' area-resize='true' pointsize=0 area-goals='goals' goalStrokeWidth='10' fillOpacity='0.8' smooth='true' line-colors='["#522C2C"]'
+                            hidehover="auto">
+                        </div>
+
+                    </div>
+                    <div class="panel" style="background-color:rgba(181, 146, 117, .3)">
+                        <div class="panel-heading">
+                            <h5 style="margin-left:auto;margin-right:auto">Elevation</h5>
+                        </div>
+                        <div style="height:150px" area-chart area-data='graphs.path' area-xkey='timestamp' area-ykeys='["altitude"]' area-labels='["altitude"]' area-resize='true' pointsize=0 goalStrokeWidth='10' fillOpacity='0.5' smooth='true' line-colors='["#634A35"]' ymin='1400'
+                            parseTime='false' xlabelformat='blank' hidehover="auto">
+                        </div>
+
+                    </div>
+                    <div class="panel" style="background-color:rgba(94, 145, 94, .2)">
+                        <div class="panel-heading">
+                            <h5 style="margin-left:auto;margin-right:auto">pace</h5>
+                        </div>
+                        <div style="height:150px" area-chart area-data='graphs.distance' area-xkey='timestamp2' area-ymax="10" area-ykeys='["pace","current_pace"]' area-labels='["Avg Pace", "Current Pace"]' area-resize='true' pointsize=0  fillOpacity='0.5' line-colors='["#15512E","#522C2C"]'
+                           hidehover="auto">
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

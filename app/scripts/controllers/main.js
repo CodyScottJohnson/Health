@@ -14,11 +14,11 @@ angular.module('Health')
     Running.getRunDataMonthDetail().then(function(data){ $scope.selectedMonth.list = data;});
     $scope.drawMonthGraphs = function(){
       $timeout(function() {
-        $scope.selectedMonth.draw = !$scope.selectedMonth.draw
+        $scope.selectedMonth.draw = !$scope.selectedMonth.draw;
       }, 10);
-    }
+    };
     $scope.MonthDetail = function(i,row,x,y){
-      console.log(row)
+      console.log(row);
       Running.getRunDataMonthDetail(row.Year,row.Month).then(function(data){
       $scope.showMonthPanel = true;
       $scope.selectedMonth.list = data;
@@ -26,18 +26,18 @@ angular.module('Health')
       if(x+500 > $window.innerWidth){
         x = $window.innerWidth - 500;
       }
-      $scope.selectedMonth.style['left'] = x+'px';
-      $scope.selectedMonth.style['top'] = y+'px';
+      $scope.selectedMonth.style.left = x+'px';
+      $scope.selectedMonth.style.top = y+'px';
       //$scope.$apply();
 
       $timeout(function() {
-        $scope.selectedMonth.draw = !$scope.selectedMonth.draw
+        $scope.selectedMonth.draw = !$scope.selectedMonth.draw;
       }, 10);
       });
     };
     $scope.hideMonthPanel = function(){
       $scope.showMonthPanel = false;
-    }
+    };
     $scope.MonthDisplay={key:['Month_Runs'],title:'Number of Runs'};
           $scope.changeMonthView = function() {
               var temp = $scope.RunsByMonth;
@@ -98,7 +98,12 @@ angular.module('Health')
                 console.log(data);
               });
             });
-          }
+          };
+    $scope.showRunDetail = function(runID){
+        Running.getSpecificRuns([runID]).then(function(data){
+            Functions.OpenModal("views/Modals/RunDetail.html",'lg',data,'RundetailCtrl',{windowClass:'notification_modal'});
+        });
+    };
 
 
   });
