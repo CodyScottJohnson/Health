@@ -22,7 +22,7 @@ angular.module('Health')
   '$filter',
   function($filter) {
       return function(input) {
-        var min = Math.round((input-Math.floor(input))*60)
+        var min = Math.round((input-Math.floor(input))*60);
         return Math.floor(input) +"' " + min + '"';
       };
   }
