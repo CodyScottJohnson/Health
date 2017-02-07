@@ -1,0 +1,45 @@
+.main-dashboard{
+  height:100%;
+  width:100%;
+  background: url('../images/Backgrounds/bg_3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding:50px;
+  padding-left:100px;
+  padding-right:100px;
+  .inner-board{
+    height:100%;
+    width:100%;
+    background-image: radial-gradient(61% 75%, fade(#323F69,80%) 67%, fade(#8C425B,80%) 100%);
+  }
+  .col-sm-3{
+    padding: 0!important;
+    margin:0!important;
+  }
+  .row{
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .stat{
+    height:150px;
+    width:100%;
+    border-right:1px solid fade(white,20%);
+    border-bottom:1px solid fade(white,20%);
+    &.selected{
+      background: fade(#1FB8BD,90%);
+      .BoxShadowHelper(2);
+    }
+  }
+  .profile{
+    height:150px;
+    width:100%;
+    border-right:1px solid fade(white,20%);
+    border-bottom:1px solid fade(white,20%);
+    padding:35px;
+    img{
+      height:80px;
+      width:80px;
+      border-radius: 100%;
+    }
+  }
+}
