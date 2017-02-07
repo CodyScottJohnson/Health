@@ -11,6 +11,8 @@ angular.module('Health')
   .controller('MainCtrl', function ($scope, $document,Data,Functions, Running,$window, $timeout) {
     $scope.selectedMonth = {style:{"left":"932px","top":"294px"},state:'detail'};
     $scope.showMonthPanel = false;
+    $scope.spark=[{'name':'weight',datapoint:1,sort:'2016-09-01'},{'name':'weight',datapoint:4,sort:'2016-09-02'},{'name':'weight',datapoint:2,sort:'2016-09-03'},{'name':'weight',datapoint:3,sort:'2016-09-04'}];
+    console.log($scope.spark);
     Running.getRunDataMonthDetail().then(function(data){ $scope.selectedMonth.list = data;});
     $scope.drawMonthGraphs = function(){
       $timeout(function() {

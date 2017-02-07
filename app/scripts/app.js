@@ -13,13 +13,11 @@ angular
     'angular.filter',
     //'angularMoment',
     'angular.morris',
-    'FBAngular',
     'ngAnimate',
     'ngCookies',
     'ngSanitize',
     'ui.bootstrap',
     'ui.router',
-    'uiSwitch'
   ]);
 angular.module('Health').run(function($rootScope, $state, $cookies) {
 });
