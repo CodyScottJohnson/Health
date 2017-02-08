@@ -19,11 +19,12 @@
     "angular-xeditable": "^0.2.0",
     "Ionicons": "ionicons#^2.0.1",
     "angular-morris": "http://git.jfsapp.com/git/codysj/Angular-Morris.git",
-    "hover": "Hover#^2.0.2"
-
+    "hover": "Hover#^2.0.2",
+    "angular-fullscreen": "^1.0.1"
   },
   "devDependencies": {
-    "angular-mocks": "^1.4.0"
+    "angular-mocks": "^1.4.0",
+    "angular-fullscreen": "^1.0.1"
   },
   "appPath": "app",
   "moduleName": "Health",

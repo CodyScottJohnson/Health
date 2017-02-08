@@ -1,0 +1,18 @@
+<div class="stat" ng-class="{'selected':statSelected}">
+  <div class="inner_stat">
+
+  <div class="number">
+    <i ng-class="statIcon" ng-style="{color:statColor}"></i>
+    {{statValue}}
+    <span>{{statMetric}}</span>
+  </div>
+  <div class="title">
+    {{statName}}
+  </div>
+  <div class="graph">
+    <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='statData.data' line-xkey="{{statData.x}}" line-ykeys="[statData.y]" line-lineWidth=2 line-labels='[statData.y]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-redraw="statRedraw" line-grid='false' line-colors="[statColor]">
+    </div>
+    </div>
+
+</div>
+</div>

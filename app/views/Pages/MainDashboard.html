@@ -1,197 +1,93 @@
-<div class="main-dashboard">
-  <div class="inner-board">
+<div class="main-dashboard" ng-style="{'background-image':'url('+bg+')'}" fullscreen="isFullscreen">
+  <div class="scrollbar inner-board">
 
-  <div class="row" style="padding:0">
-    <div class="col-md-4">
-      <div class="profile">
-        <img src="images/Backgrounds/bg_1.jpg" />
-      </div>
-    </div>
-    <div class="col-md-2">
+    <div class="row">
+      <div class="col-md-4 flush">
+        <div class="profile">
+          <div style="display:inline-block;position:relative">
+            <img ng-click="isFullscreen=!isFullscreen" src="images/Backgrounds/bg_1.jpg" />
+            <div class="circle">
 
-    </div>
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-2">
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-weights"></i>
-          76
-          <span>lb</span>
-        </div>
-        <div class="title">
-          body weight
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
+            </div>
           </div>
+          <div class="text">
+          <span>16</span> | 24
+          <div class="title">
+            goals completed
           </div>
-
-      </div>
-    </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          20
-          <span>%</span>
         </div>
-        <div class="title">
-          Muscle Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
-
         </div>
       </div>
-
-    </div>
-    <div class="col-sm-3">
-      <div class="stat selected">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
+      <div class="col-md-2 col-sm-3 col-xs-6 flush">
+        <div class="button" ng-click="weight.selected=!weight.selected" ng-class="{'selected':weight.selected}">
+          <div class="inner">
+            Weight
           </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3  col-xs-6 flush">
+        <div class="button" ng-click="vitals.selected=!vitals.selected" ng-class="{'selected':vitals.selected}">
+          <div class="inner">
+
           </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3  col-xs-6 flush">
+        <div class="button" ng-click="exercise.selected=!exercise.selected" ng-class="{'selected':exercise.selected}">
+          <div class="inner">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3  col-xs-6 flush">
+        <div class="button">
 
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
+    <div class="row" ng-show="weight.selected">
+      <div class="col-sm-6 col-md-3 flush" ng-click="test=!test">
+        <spark-stat ng-click="total=!total" stat-redraw="weight.selected" stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'" stat-selected="total">
+        </spark-stat>
+      </div>
+      <div class="col-sm-6 col-md-3 flush">
+        <spark-stat ng-click="muscle=!muscle" stat-redraw="weight.selected" stat-color="'#43B3C0'" stat-name="'Musle percentage'" stat-value="20" stat-metric="'%'" stat-data="spark" stat-icon="'hf-arm'" stat-selected="muscle">
+        </spark-stat>
+      </div>
+      <div class="col-sm-6 col-md-3 flush">
+        <spark-stat ng-click="fat=!fat" stat-redraw="weight.selected" stat-color="'#F9C86B'" stat-name="'fat percentage'" stat-value="16" stat-metric="'%'" stat-data="spark" stat-icon="'hf-scale'" stat-selected="fat">
+        </spark-stat>
+      </div>
+      <div class="col-sm-6 col-md-3 flush">
+        <spark-stat ng-click="water=!water" stat-redraw="weight.selected" stat-color="'#43B3C0'" stat-name="'water percentage'" stat-value="60" stat-metric="'%'" stat-data="spark" stat-icon="'fa fa-tint'" stat-selected="water">
+        </spark-stat>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <spark-stat stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'">
+        </spark-stat>
+      </div>
 
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
+      <div class="col-sm-3">
+        <spark-stat stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'">
+        </spark-stat>
+      </div>
+      <div class="col-sm-3">
+        <spark-stat stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'">
+        </spark-stat>
+      </div>
+      <div class="col-sm-3">
+        <spark-stat stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'">
+        </spark-stat>
+      </div>
+    </div>
+    <div class="row" style="padding:0">
+      <div class="col-md-12">
+        <div class="full_stat">
 
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-      <div class="stat selected">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="stat">
-        <div class="inner_stat">
-
-        <div class="number">
-          <i class="hf-arm"></i>
-          17
-          <span>%</span>
-        </div>
-        <div class="title">
-          Fat Percentage
-        </div>
-        <div class="graph">
-          <div style="height:100px;width:100%;margin:0;padding:0" line-chart line-data='spark' line-xkey="sort" line-ykeys="['datapoint']" line-lineWidth=2 line-labels='["name"]' line-resize='true' line-axes='false' line-pointsize='0' line-hidehover="'always'" line-grid='false' line-colors="['#F05F8D']">
-          </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row" style="padding:0">
-    <div class="col-md-12">
-      <div class="full_stat">
-
-      </div>
-    </div>
-  </div>
-</div>
 </div>

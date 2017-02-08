@@ -12,6 +12,7 @@ angular
   .module('Health', [
     'angular.filter',
     //'angularMoment',
+    'FBAngular',
     'angular.morris',
     'ngAnimate',
     'ngCookies',
