@@ -10,7 +10,7 @@
 angular.module('Health')
   .factory('Running', function($http, $q, $uibModal, $rootScope) {
     var Running = {
-      data: {}
+      data: {selectedMonth:{state:'detail',draw:false,style:{}}}
     };
     Running.getRunDataMonth = function() {
       var deferred = $q.defer();
@@ -30,6 +30,7 @@ angular.module('Health')
         method: 'GET',
         url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/Detail/'+year+'/'+month,
       }).then(function(data) {
+        Running.data.selectedMonth.list = data.data;
         deferred.resolve(data.data);
       }, function(error) {
         deferred.reject(error);
@@ -89,5 +90,6 @@ angular.module('Health')
       return deferred.promise;
     };
     Running.getSpecificRuns('toast');
+    Running.updateDetailFromSource();
     return Running;
   });

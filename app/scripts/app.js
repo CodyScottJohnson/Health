@@ -38,9 +38,16 @@ angular.module('Health').config(function($urlMatcherFactoryProvider,$stateProvid
       }
 
     })
-    .state('app.Running', {
+    .state('app.Dashboard', {
       url: '/',
+      templateUrl: 'views/Pages/MainDashboard.html',
+      controller:'DashboardCtrl'
+
+    })
+    .state('app.Running', {
+      url: '/Running',
       templateUrl: 'views/Pages/Running/dashboard.html',
+      controller:'RunningCtrl'
 
     })
     .state('app.Apply', {

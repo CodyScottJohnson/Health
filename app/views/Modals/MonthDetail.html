@@ -1,18 +1,18 @@
 <div class="month_detail">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <i class="fa fa-globe" ng-click="selectedMonth.draw=!selectedMonth.draw"></i>
+      <i class="fa fa-globe" ng-click="Running.selectedMonth.draw=!Running.selectedMonth.draw"></i>
       <i class="fa fa-close clickable" style="float:right" ng-click="hideMonthPanel()"></i>
       <div class="items">
-        <span ng-class="{selected:selectedMonth.state=='overview'}" ng-click="selectedMonth.state='overview';drawMonthGraphs()">
+        <span ng-class="{selected:Running.selectedMonth.state=='overview'}" ng-click="Running.selectedMonth.state='overview';drawMonthGraphs()">
         Overview
       </span>
-        <span ng-class="{selected:selectedMonth.state=='detail'}" ng-click="selectedMonth.state='detail'">
+        <span ng-class="{selected:Running.selectedMonth.state=='detail'}" ng-click="Running.selectedMonth.state='detail'">
         Detail
       </span>
       </div>
     </div>
-    <div class="detail_header" ng-show="selectedMonth.state=='detail'">
+    <div class="detail_header" ng-show="Running.selectedMonth.state=='detail'">
       <div class="item">
       </div>
       <div class="item">Date</div>
@@ -21,7 +21,7 @@
       <div class="item">Pace</div>
     </div>
     <div class="panel-body">
-      <div class="detail"  ng-show="selectedMonth.state=='detail'" ng-click="showRunDetail(item.Run_ID);hideMonthPanel()" ng-repeat="item in selectedMonth.list|orderBy:'-start_time'">
+      <div class="detail"  ng-show="Running.selectedMonth.state=='detail'" ng-click="showRunDetail(item.Run_ID);hideMonthPanel()" ng-repeat="item in Running.selectedMonth.list|orderBy:'-start_time'">
         <div class="item">
           <i class="fa fa-tree"></i>
         </div>
@@ -30,26 +30,26 @@
         <div class="item">{{(item.total_distance/1609.34)| number:2}} miles</div>
         <div class="item">{{((item.duration/60.0)/(item.total_distance/1609.34))| pace}}/mi</div>
       </div>
-      <div class="graphs" ng-show="selectedMonth.state=='overview'">
+      <div class="graphs" ng-show="Running.selectedMonth.state=='overview'">
         <div class="panel panel-default">
           <div class="panel-heading">
             Distance
           </div>
-            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='selectedMonth.list' area-xkey='start_time' area-Redraw="selectedMonth.draw" area-ykeys='["Distance"]' area-labels='["Distance"]' area-resize='true' line-colors='["#FD8E68"]'>
+            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='Running.selectedMonth.list' area-xkey='start_time' area-Redraw="Running.selectedMonth.draw" area-ykeys='["Distance"]' area-labels='["Distance"]' area-resize='true' line-colors='["#FD8E68"]'>
             </div>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
             Pace
           </div>
-            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='selectedMonth.list' area-xkey='start_time' area-Redraw="selectedMonth.draw" area-ykeys='["Avg_Pace"]' area-labels='["Average Pace"]' area-resize='true' line-colors='["#459995"]'>
+            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='Running.selectedMonth.list' area-xkey='start_time' area-Redraw="Running.selectedMonth.draw" area-ykeys='["Avg_Pace"]' area-labels='["Average Pace"]' area-resize='true' line-colors='["#459995"]'>
             </div>
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
             Calories Burned
           </div>
-            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='selectedMonth.list' area-xkey='start_time' area-Redraw="selectedMonth.draw" area-ykeys='["total_calories"]' area-labels='["Calories Burned"]' area-resize='true' line-colors='["#F97074"]'>
+            <div style="height:150px" class="chart" area-chart ymin='0' fillOpacity='0.5' axes="false"  xLabels="['day']" area-data='Running.selectedMonth.list' area-xkey='start_time' area-Redraw="Running.selectedMonth.draw" area-ykeys='["total_calories"]' area-labels='["Calories Burned"]' area-resize='true' line-colors='["#F97074"]'>
             </div>
         </div>
       </div>
