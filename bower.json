@@ -20,7 +20,8 @@
     "Ionicons": "ionicons#^2.0.1",
     "angular-morris": "http://git.jfsapp.com/git/codysj/Angular-Morris.git",
     "hover": "Hover#^2.0.2",
-    "angular-fullscreen": "^1.0.1"
+    "angular-fullscreen": "^1.0.1",
+    "modernizr_local": "./vendor/modernizr-2.6.2.min.js"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
@@ -35,6 +36,7 @@
         "dist/css/bootstrap.css"
       ]
     },
+
     "font-awesome": {
       "main": [
         "css/font-awesome.css"

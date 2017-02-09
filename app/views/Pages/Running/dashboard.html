@@ -9,10 +9,11 @@
             <button type="button" ng-click="MonthDisplay={key:['Month_Runs'],title:'Number of Runs'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Runs'}">Runs</button>
             <button type="button" ng-click="MonthDisplay={key:['Month_Distance'],title:'Distance in Miles'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Distance'}">Distance</button>
             <button type="button" ng-click="MonthDisplay={key:['Month_Avg_Pace'],title:'Average Pace'}" class="btn btn-default" ng-class="{selected:MonthDisplay.key=='Month_Avg_Pace'}">Pace</button>
+            <button type="button" ng-click="UpdateAll()" class="btn btn-default"><i class="fa fa-retweet"></i></button>
           </div>
         </div>
         <div class="panel-body">
-          <div area-chart area-data='RunsByMonth' area-xkey='Label' area-ykeys='MonthDisplay.key' area-labels='[MonthDisplay.title]' area-resize='true' area-clickfunction='MonthDetail' line-colors='colors'>
+          <div area-chart area-data='Running.RunsByMonth' area-xkey='Label' area-ykeys='MonthDisplay.key' area-labels='[MonthDisplay.title]' area-resize='true' area-clickfunction='MonthDetail' line-colors='colors'>
           </div>
         </div>
       </div>

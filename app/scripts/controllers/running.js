@@ -10,6 +10,14 @@
 angular.module('Health')
   .controller('RunningCtrl', function($scope, $document,Data,Functions, Running,$window, $timeout,$interval) {
     $scope.Running = Running.data;
+    $scope.UpdateAll = function(){
+      Running.updateAllFromSource().then(function(){
+        Running.getRunDataAll();
+        Running.getRunDataMonth();
+      });
+      Running.updateDetailFromSource();
+
+    };
     $scope.drawMonthGraphs = function() {
       $timeout(function() {
         $scope.Running.selectedMonth.draw = !$scope.Running.selectedMonth.draw;
@@ -55,26 +63,8 @@ angular.module('Health')
     };
     $scope.runData = [];
 
-    Running.getRunDataAll().then(function(data) {
-      $scope.allRuns = data;
-    });
-    Running.getRunDataMonth().then(function(data) {
-      $scope.RunsByMonth = data;
-      //console.log(data)
-      $scope.areaLineData = {
-        labels: [],
-        series: [
-          []
-
-        ]
-      };
-      angular.forEach(data, function(value, key) {
-        $scope.areaLineData.labels.push(value.Label);
-        $scope.areaLineData.series[0].push(value.Month_Runs);
-      });
-      //console.log($scope.areaLineData.labels)
-      //new Chartist.Line('#area-chart', $scope.areaLineData, $scope.areaLineOptions);
-    });
+    Running.getRunDataAll();
+    Running.getRunDataMonth();
     $scope.getAllData = function(url) {
       $scope.getRunData(url)
         .then(function(data) {
@@ -91,18 +81,7 @@ angular.module('Health')
     $scope.hideAxes = function(x) {
       return '';
     };
-    $scope.updateAll = function() {
-      Running.updateAllFromSource().then(function(data) {
-        Running.updateDetailFromSource();
-        Running.getRunDataMonth().then(function(data) {
-          $scope.RunsByMonth = data;
-        });
-        Running.getRunDataAll().then(function(data) {
-          $scope.allRuns = data;
-          console.log(data);
-        });
-      });
-    };
+
     $scope.showRunDetail = function(runID) {
       Running.getSpecificRuns([runID]).then(function(data) {
         Functions.OpenModal("views/Modals/RunDetail.html", 'lg', data, 'RundetailCtrl', {

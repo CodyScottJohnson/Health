@@ -18,6 +18,7 @@ angular.module('Health')
         method: 'GET',
         url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/All',
       }).then(function(data) {
+        Running.data.RunsByMonth=data.data;
         deferred.resolve(data.data);
       }, function(error) {
         deferred.reject(error);
@@ -59,6 +60,7 @@ angular.module('Health')
         method: 'GET',
         url: 'https://jfsapp.com/Open/API/Dashboard/Runs',
       }).then(function(data) {
+        Running.data.allRuns = data.data;
         deferred.resolve(data.data);
       }, function(error) {
         deferred.reject(error);

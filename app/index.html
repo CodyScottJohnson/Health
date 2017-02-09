@@ -31,6 +31,25 @@
     <div ng-include="'views/Shared/header.html'"></div>
     <!--<div  ng-show="search.show && header_search" ng-include="'views/Shared/search.html'"></div>-->
     <div class="mainView" ui-view resize style="width:100%;height:{{windowHeight}}px;padding:0;padding-top:60px;"></div>
+<div id="cn-overlay" class="cn-overlay" ng-click="show_Menu=!show_Menu" ng-class="{'on-overlay':show_Menu}"></div>
+<div class="menu_div">
+
+
+    <div class="component">
+      <button class="cn-button" id="cn-button" ng-click="show_Menu=!show_Menu"><i class="hf-heart"></i></button>
+    				<div class="cn-wrapper" id="cn-wrapper" ng-class="{'opened-nav':show_Menu}">
+                <ul>
+    				      <li><a ui-sref="app.Dashboard" ng-click="show_Menu=!show_Menu"><span class="fa fa-user"></span></a></li>
+    				      <li><a ui-sref="app.Running" ng-click="show_Menu=!show_Menu"><span class="hf-trail-running-shoe" style="color:#43B3C0"></span></a></li>
+    				      <li><a href="#"><span class="fa fa-user"></span></a></li>
+    				      <li><a href="#"><span class="fa fa-user"></span></a></li>
+    				      <li><a href="#"><span class="fa fa-user"></span></a></li>
+    				     </ul>
+    				</div>
+
+        </div>
+      </div>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -56,6 +75,7 @@
     <script src="bower_components/morris.js/morris.js"></script>
     <script src="bower_components/angular-morris/build/module/angular-morris/angular-morris.min.js"></script>
     <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
+    <script src="bower_components/modernizr_local/index.js"></script>
     <!-- endbower -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- endbuild -->
@@ -81,6 +101,7 @@
     <script src="scripts/directives/spark-stat.js"></script>
     <script src="scripts/controllers/dashboard.js"></script>
     <script src="scripts/controllers/running.js"></script>
+    <script src="scripts/services/weather.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <div class="main-dashboard" ng-style="{'background-image':'url('+bg+')'}" fullscreen="isFullscreen">
   <div class="scrollbar inner-board">
 
@@ -21,6 +22,7 @@
       <div class="col-md-2 col-sm-3 col-xs-6 flush">
         <div class="button" ng-click="weight.selected=!weight.selected" ng-class="{'selected':weight.selected}">
           <div class="inner">
+            <i class="hf-notepad"></i>
             Weight
           </div>
         </div>
@@ -28,14 +30,16 @@
       <div class="col-md-2 col-sm-3  col-xs-6 flush">
         <div class="button" ng-click="vitals.selected=!vitals.selected" ng-class="{'selected':vitals.selected}">
           <div class="inner">
-
+            <i class=" hf-stethoscope-variant"></i>
+            Vitals
           </div>
         </div>
       </div>
       <div class="col-md-2 col-sm-3  col-xs-6 flush">
         <div class="button" ng-click="exercise.selected=!exercise.selected" ng-class="{'selected':exercise.selected}">
           <div class="inner">
-
+            <i class="hf-situp"></i>
+            Exercise
           </div>
         </div>
       </div>
@@ -47,15 +51,15 @@
     </div>
     <div class="row" ng-show="weight.selected">
       <div class="col-sm-6 col-md-3 flush" ng-click="test=!test">
-        <spark-stat ng-click="total=!total" stat-redraw="weight.selected" stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-weights'" stat-selected="total">
+        <spark-stat ng-click="total=!total" stat-redraw="weight.selected" stat-color="'#F05F8D'" stat-name="'body weight'" stat-value="160" stat-metric="'lbs'" stat-data="spark" stat-icon="'hf-scale'" stat-selected="total">
         </spark-stat>
       </div>
       <div class="col-sm-6 col-md-3 flush">
-        <spark-stat ng-click="muscle=!muscle" stat-redraw="weight.selected" stat-color="'#43B3C0'" stat-name="'Musle percentage'" stat-value="20" stat-metric="'%'" stat-data="spark" stat-icon="'hf-arm'" stat-selected="muscle">
+        <spark-stat ng-click="muscle=!muscle" stat-redraw="weight.selected" stat-color="'#00FBB8'" stat-name="'Musle percentage'" stat-value="20" stat-metric="'%'" stat-data="spark" stat-icon="'hf-weights'" stat-selected="muscle">
         </spark-stat>
       </div>
       <div class="col-sm-6 col-md-3 flush">
-        <spark-stat ng-click="fat=!fat" stat-redraw="weight.selected" stat-color="'#F9C86B'" stat-name="'fat percentage'" stat-value="16" stat-metric="'%'" stat-data="spark" stat-icon="'hf-scale'" stat-selected="fat">
+        <spark-stat ng-click="fat=!fat" stat-redraw="weight.selected" stat-color="'#F9C86B'" stat-name="'fat percentage'" stat-value="16" stat-metric="'%'" stat-data="spark" stat-icon="'hf-measuring-tape'" stat-selected="fat">
         </spark-stat>
       </div>
       <div class="col-sm-6 col-md-3 flush">
