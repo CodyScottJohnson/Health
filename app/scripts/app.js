@@ -28,6 +28,11 @@ angular.module('Health').config(function($urlMatcherFactoryProvider,$stateProvid
   $urlMatcherFactoryProvider.strictMode(false);
   $urlRouterProvider.otherwise("/");
   $stateProvider
+    .state('Login', {
+      url: '/Login',
+      templateUrl: 'views/Pages/Login.html',
+      controller:'LoginCtrl'
+    })
     .state('app', {
       url: '',
       abstract:true,

@@ -1,1 +1,20 @@
-<div ui-view class="view" style="width:100%;height:100%;padding:0" ></div>
+<div ng-include="'views/Shared/header.html'"></div>
+<div ui-view class="view" style="width:100%;height:100%;padding:0;padding-top:60px;" ></div>
+<div id="cn-overlay" class="cn-overlay" ng-click="show_Menu=!show_Menu" ng-class="{'on-overlay':show_Menu}"></div>
+<div class="menu_div">
+
+
+    <div class="component">
+      <button class="cn-button" id="cn-button" ng-click="show_Menu=!show_Menu"><i class="hf-heart"></i></button>
+    				<div class="cn-wrapper" id="cn-wrapper" ng-class="{'opened-nav':show_Menu}">
+                <ul>
+    				      <li><a ui-sref="Login" ng-click="show_Menu=!show_Menu"><span class="icon ion-ios-analytics-outline"></span></a></li>
+    				      <li><a ui-sref="app.Running" ng-click="show_Menu=!show_Menu"><span class="hf-trail-running-shoe" style="color:#43B3C0"></span></a></li>
+                  <li><a ui-sref="app.Dashboard" ng-click="show_Menu=!show_Menu"><span class="icon ion-ios-analytics-outline"></span></a></li>
+    				      <li><a href="#"><span class="fa fa-user"></span></a></li>
+    				      <li><a href="#"><span class="fa fa-user"></span></a></li>
+    				     </ul>
+    				</div>
+
+        </div>
+      </div>

@@ -12,7 +12,7 @@ angular.module('Health')
     $scope.bg ='images/Backgrounds/bg_1.jpg';
     $scope.UpdateImage = function(){
       var rint = Math.floor(Math.random() * (17 - 1 + 1)) + 1;
-      rint =18;
+      //rint =18;
       $scope.bg ='images/Backgrounds/bg_'+rint+'.jpg';
     };
     $scope.UpdateImage();
