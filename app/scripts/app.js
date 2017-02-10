@@ -21,6 +21,12 @@ angular
     'ui.router',
   ]);
 angular.module('Health').run(function($rootScope, $state, $cookies) {
+  $rootScope.rint = Math.floor(Math.random() * (17 - 1 + 1)) + 1;
+  $rootScope.conn = new WebSocket('wss://jfsapp.com/WebSocket');
+  $rootScope.conn.onopen = function(e) {
+    console.log("Connection established!");
+    $rootScope.conn.send(angular.toJson({id:'User-'+$rootScope.rint,type:'Health','action':'NewID'}));
+  };
 });
 angular.module('Health').config(function($urlMatcherFactoryProvider,$stateProvider, $urlRouterProvider) {
 

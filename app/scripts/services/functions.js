@@ -8,10 +8,14 @@
  * Factory in the Health.
  */
 angular.module('Health')
-  .factory('Functions', function ($uibModal) {
+  .factory('Functions', function ($uibModal, $rootScope) {
     // Service logic
     // ...
     var Functions = {};
+    Functions.SendSocket = function(data){
+      console.log('here')
+        $rootScope.conn.send(angular.toJson(data));
+    };
     Functions.OpenModal = function(modalname,size,data,ctrl,options){
     var default_options = {
      animation: true,
