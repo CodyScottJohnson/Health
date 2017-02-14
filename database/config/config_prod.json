@@ -1,0 +1,6 @@
+{
+  "ENV":{
+    "API":"https://jfsapp.com/Open/API/Dashboard/",
+    "Runkeeper":{"redirect_uri":"http://codysj.myqnapcloud.com/web/#!/Oauth/runkeeper"}
+  }
+}

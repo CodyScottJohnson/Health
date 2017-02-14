@@ -45,5 +45,10 @@ angular.module('Health')
       $rootScope.state = $state.current;
       $state.go('login');
     };
+    User.UpdateLocal = function(User) {
+      $rootScope.currentUser = User;
+      localStorageService.set('user', User);
+      ENV.UserUrl = ENV.API + User + '/';
+    };
     return User;
   });

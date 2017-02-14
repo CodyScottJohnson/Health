@@ -40,7 +40,9 @@ angular.module('Health').run(function($rootScope, $state, $cookies, localStorage
       var requireLogin = toState.data.requireLogin;
       if (typeof $rootScope.currentUser === 'undefined') {
         $rootScope.currentUser = localStorageService.get('user');
+        if(typeof $rootScope.currentUser !== 'undefined' && $rootScope.currentUser !== null){
         ENV.UserUrl = ENV.API + $rootScope.currentUser.User_ID + '/';
+      }
       }
       if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
         event.preventDefault();

@@ -8,9 +8,12 @@
  * Controller of the Health
  */
 angular.module('Health')
-  .controller('RunningCtrl', function($scope, $document,Data,Functions, Running,$window, $timeout,$interval, ENV, $location) {
-    //eyJkYXRhIjp7InIiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAvIyEvUnVubmluZyIsImMiOiI2Njg5NmUyZTU2ZWQ0OTU2OWE2ZmNhYzVmNzNlOTRiMiIsInQiOjE0ODcwMTc3Njg2ODAsInUiOjI1MTU4NDc2fSwibWFjIjoiTndPKzduK281eGdrQ3ZZTDJiUXpoMm1MN0JyeGQ3b0M2N2c3NEtMbGY5bz0ifQ
-    console.log(Functions.GetParams(window.location.search));
+  .controller('RunningCtrl', function($http, $scope, $document,Data,Functions, Running,$window, $timeout,$interval, $rootScope) {
+    if($rootScope.currentUser.Token_RunKeeper===""||$rootScope.currentUser.Token_RunKeeper === null || !angular.isDefined($rootScope.currentUser.Token_RunKeeper)){
+      Functions.OpenModal('views/Modals/Register/runkeeper.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
+    }
+    Functions.OpenModal('views/Modals/Register/fitbit.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
+
     $scope.Running = Running.data;
     $scope.UpdateAll = function(){
       Running.updateAllFromSource().then(function(){
@@ -59,7 +62,7 @@ angular.module('Health')
       Running.getSpecificRuns([runID]).then(function(data) {
         console.log('done');
         Functions.OpenModal("app/pages/running/modals/rundetail/rundetail.html", 'lg', data, 'RunDetailCtrl', {
-          windowClass: 'notification_modal'
+
         });
       });
     };
@@ -87,7 +90,7 @@ angular.module('Health')
     $scope.showRunDetail = function(runID) {
       Running.getSpecificRuns([runID]).then(function(data) {
         Functions.OpenModal("views/Modals/RunDetail.html", 'lg', data, 'RundetailCtrl', {
-          windowClass: 'notification_modal'
+
         });
       });
     };

@@ -15,7 +15,7 @@ module.exports = function (grunt) {
   // Deploy Build to Server
   grunt.loadNpmTasks('grunt-ssh-deploy');
   grunt.loadNpmTasks('grunt-ng-constant');
-  var env = grunt.option('env') || 'prod';
+  var env = grunt.option('env') || 'dev';
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
@@ -63,6 +63,12 @@ module.exports = function (grunt) {
      dest: '<%= yeoman.app %>/scripts/services/config.js'
    },
    constants: grunt.file.readJSON('database/config/config_dev.json')
+ },
+ prod: {
+   options: {
+     dest: '<%= yeoman.app %>/scripts/services/config.js'
+   },
+   constants: grunt.file.readJSON('database/config/config_prod.json')
  }
   },
     // Project settings
@@ -534,6 +540,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'ngconstant:' + env,
     'useminPrepare',
     'concurrent:dist',
     'less',
