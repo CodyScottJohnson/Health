@@ -2,7 +2,23 @@
   <div class="mask">
 
   <div class="login_box">
+    <div class="login_box_inner">
+      <i class="hf-heart"></i>
+      <div class="login_inputs">
 
+      <div class="input">
+        <i class="fa fa-user"></i>
+      <input ng-model="Username" placeholder="Username" />
+    </div>
+    <div class="input">
+      <i class="fa fa-lock"></i>
+      <input ng-model="Password" placeholder="Password" type="password"/>
+    </div>
+  </div>
+    <div class="submit" ng-click="Login(Username,Password)">
+      <span>Login</span>
+    </div>
+    </div>
   </div>
 </div>
 </div>

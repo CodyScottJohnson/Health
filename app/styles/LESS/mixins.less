@@ -61,6 +61,7 @@
     box-shadow: 0 -19px 38px rgba(0,0,0,0.30), 0 -15px 12px rgba(0,0,0,0.22);
   }
 }
+
 .DirectionalBoxShadowHelper(@level:'right') {
   & when (@level = 'right') {
     box-shadow: 1px 0 3px rgba(0,0,0,0.12), 1px 0 2px rgba(0,0,0,0.24);
@@ -76,6 +77,23 @@
   }
   & when (@level = 5) {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+.TextShadowHelper(@level:1) {
+  & when (@level = 1) {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  & when (@level = 2) {
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  & when (@level = 3) {
+    text-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  & when (@level = 4) {
+    text-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  & when (@level = 5) {
+    text-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
 }
 .scrollbar {
@@ -101,6 +119,6 @@
     cursor: pointer;
   };
 }
-.background{
-  background-image:linear-gradient(-45deg, #FD8d68 0%,#f97072 38%, darken(#f97072,5%) 100%);
+.background(@fade: 100%){
+  background-image:linear-gradient(-45deg, fade(#FD8d68,@fade) 0%,fade(#f97072,@fade) 38%, fade(darken(#f97072,5%),@fade) 100%);
 }

@@ -8,10 +8,8 @@
  * Controller of the Health
  */
 angular.module('Health')
-  .controller('LoginCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, User) {
+    $scope.Login = function(Username,Password){
+        User.Login(Username,Password);
+      };
   });

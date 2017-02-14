@@ -11,9 +11,11 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  var modRewrite = require('connect-modrewrite');
   // Deploy Build to Server
   grunt.loadNpmTasks('grunt-ssh-deploy');
+  grunt.loadNpmTasks('grunt-ng-constant');
+  var env = grunt.option('env') || 'prod';
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
@@ -49,6 +51,19 @@ module.exports = function (grunt) {
           }
       }
 
+  },
+  ngconstant:{
+    options: {
+   space: '  ',
+   wrap: '"use strict";\n\n {\%= __ngModule %}',
+   name: 'config',
+ },
+ dev: {
+   options: {
+     dest: '<%= yeoman.app %>/scripts/services/config.js'
+   },
+   constants: grunt.file.readJSON('database/config/config_dev.json')
+ }
   },
     // Project settings
     yeoman: appConfig,
@@ -118,7 +133,9 @@ module.exports = function (grunt) {
         options: {
           open: true,
           middleware: function (connect) {
+
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -492,6 +509,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'ngconstant:' + env,
       'concurrent:server',
       'postcss:server',
       'connect:livereload',

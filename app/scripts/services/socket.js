@@ -9,6 +9,7 @@
  */
 angular.module('Health')
   .service('Socket', function($rootScope, $timeout, Functions) {
+    var Socket = {};
      var peer = new Peer('User-'+$rootScope.rint, {host: 'localhost', port: 9001, path: '/'});
 
 
@@ -17,11 +18,11 @@ angular.module('Health')
       var temp = angular.fromJson(event.data);
       if (temp.type === 'Health') {
         if(temp.action ==='NewID'){
-          console.log(temp.id)
+          console.log(temp.id);
           $rootScope.conn = peer.connect(temp.id);
                $rootScope.conn.on('open', function(){
                $rootScope.conn.send('hi!');
-               console.log(temp.id)
+               console.log(temp.id);
          });
         }
       }

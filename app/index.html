@@ -27,7 +27,7 @@
 
     <!-- endbuild -->
   </head>
-  <body ng-controller="MainCtrl">
+  <body >
     <!--<div  ng-show="search.show && header_search" ng-include="'views/Shared/search.html'"></div>-->
     <div class="mainView" ui-view resize style="width:100%;height:{{windowHeight}}px;padding:0"></div>
 
@@ -58,11 +58,13 @@
     <script src="bower_components/angular-morris/build/module/angular-morris/angular-morris.min.js"></script>
     <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
     <script src="bower_components/modernizr_local/index.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <!-- endbower -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- endbuild -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
@@ -86,6 +88,11 @@
     <script src="scripts/services/weather.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/services/socket.js"></script>
+    <script src="scripts/services/config.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/controllers/oauth.js"></script>
     <!-- endbuild -->
+
+
 </body>
 </html>

@@ -16,6 +16,7 @@
     "angular": false,
     "moment":false,
     "_":false,
-    "google":false
+    "google":false,
+    "Peer":false
   }
 }

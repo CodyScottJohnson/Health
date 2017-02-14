@@ -13,8 +13,17 @@ angular.module('Health')
     // ...
     var Functions = {};
     Functions.SendSocket = function(data){
-      console.log('here')
+      console.log('here');
         $rootScope.conn.send(angular.toJson(data));
+    };
+    Functions.GetParams = function(qstr){
+      var query = {};
+        var a = (qstr[0] === '?' ? qstr.substr(1) : qstr).split('&');
+        for (var i = 0; i < a.length; i++) {
+            var b = a[i].split('=');
+            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+        }
+        return query;
     };
     Functions.OpenModal = function(modalname,size,data,ctrl,options){
     var default_options = {

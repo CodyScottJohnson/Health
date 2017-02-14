@@ -8,7 +8,8 @@
  * Factory in the Health.
  */
 angular.module('Health')
-  .factory('Running', function($http, $q, $uibModal, $rootScope) {
+  .factory('Running', function($http, $q, $uibModal, $rootScope, ENV) {
+    console.log(ENV);
     var Running = {
       data: {selectedMonth:{state:'detail',draw:false,style:{}}}
     };
@@ -16,7 +17,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/All',
+        url: ENV.UserUrl + 'Run/Month/All',
       }).then(function(data) {
         Running.data.RunsByMonth=data.data;
         deferred.resolve(data.data);
@@ -29,7 +30,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Month/Detail/'+year+'/'+month,
+        url: ENV.UserUrl + 'Run/Month/Detail/'+year+'/'+month,
       }).then(function(data) {
         Running.data.selectedMonth.list = data.data;
         deferred.resolve(data.data);
@@ -43,7 +44,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'POST',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Runs/Detail/Specific',
+        url: ENV.UserUrl + 'Runs/Detail/Specific',
         data: {
           RunIDs: RunIds
         }
@@ -58,7 +59,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Runs',
+        url: ENV.UserUrl + 'Runs',
       }).then(function(data) {
         Running.data.allRuns = data.data;
         deferred.resolve(data.data);
@@ -71,7 +72,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Update/All',
+        url: ENV.UserUrl + 'Run/Update/All',
       }).then(function(data) {
         deferred.resolve(data.data);
       }, function(error) {
@@ -83,7 +84,7 @@ angular.module('Health')
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: 'https://jfsapp.com/Open/API/Dashboard/Run/Update/All/Detail',
+        url: ENV.UserUrl + 'Run/Update/All/Detail',
       }).then(function(data) {
         deferred.resolve(data.data);
       }, function(error) {
@@ -91,7 +92,7 @@ angular.module('Health')
       });
       return deferred.promise;
     };
-    Running.getSpecificRuns('toast');
-    Running.updateDetailFromSource();
+    //Running.getSpecificRuns('toast');
+    //Running.updateDetailFromSource();
     return Running;
   });

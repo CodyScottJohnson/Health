@@ -8,7 +8,9 @@
  * Controller of the Health
  */
 angular.module('Health')
-  .controller('RunningCtrl', function($scope, $document,Data,Functions, Running,$window, $timeout,$interval) {
+  .controller('RunningCtrl', function($scope, $document,Data,Functions, Running,$window, $timeout,$interval, ENV, $location) {
+    //eyJkYXRhIjp7InIiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAvIyEvUnVubmluZyIsImMiOiI2Njg5NmUyZTU2ZWQ0OTU2OWE2ZmNhYzVmNzNlOTRiMiIsInQiOjE0ODcwMTc3Njg2ODAsInUiOjI1MTU4NDc2fSwibWFjIjoiTndPKzduK281eGdrQ3ZZTDJiUXpoMm1MN0JyeGQ3b0M2N2c3NEtMbGY5bz0ifQ
+    console.log(Functions.GetParams(window.location.search));
     $scope.Running = Running.data;
     $scope.UpdateAll = function(){
       Running.updateAllFromSource().then(function(){
