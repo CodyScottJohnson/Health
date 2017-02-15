@@ -25,3 +25,11 @@
 
 </div>
 </div>
+<div class="connections">
+
+
+<div class="connection" ng-repeat="conn in Socket.connections" ng-click="SocketFunctions.Connect(conn.id)" ng-dblclick="SocketFunctions.send(conn,'cody')" style="background:white;display:block">
+
+<div class="id" ng-click="SocketFunctions.Connect(conn.id)">{{conn.id}}</div> <div ng-click="SocketFunctions.send(conn,{name:'cody'})" class="status">{{conn.Connected|json}}</div>
+</div>
+</div>

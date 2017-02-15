@@ -22,7 +22,8 @@
     "hover": "Hover#^2.0.2",
     "angular-fullscreen": "^1.0.1",
     "modernizr_local": "./vendor/modernizr-2.6.2.min.js",
-    "angular-local-storage": "^0.5.2"
+    "angular-local-storage": "^0.5.2",
+    "Health_Icons": "http://git.jfsapp.com/git/codysj/Health_Icons.git"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",

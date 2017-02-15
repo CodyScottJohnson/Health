@@ -9,7 +9,7 @@
  */
 angular.module('Health')
   .factory('Running', function($http, $q, $uibModal, $rootScope, ENV) {
-    console.log(ENV);
+
     var Running = {
       data: {selectedMonth:{state:'detail',draw:false,style:{}}}
     };

@@ -25,14 +25,6 @@ angular
 angular.module('Health').run(function($rootScope, $state, $cookies, localStorageService, ENV) {
   $rootScope.rint = Math.floor(Math.random() * (17 - 1 + 1)) + 1;
   $rootScope.conn = new WebSocket('wss://jfsapp.com/WebSocket');
-  $rootScope.conn.onopen = function(e) {
-    console.log("Connection established!");
-    $rootScope.conn.send(angular.toJson({
-      id: 'User-' + $rootScope.rint,
-      type: 'Health',
-      'action': 'NewID'
-    }));
-  };
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
       if ($state.current.name != "login") {
         $rootScope.state = $state.current;

@@ -9,7 +9,7 @@
  */
 angular.module('Health')
   .controller('MainCtrl', function(Functions,  $timeout, Socket, $scope, $rootScope, User) {
-    console.log($rootScope.currentUser);
+    //console.log($rootScope.currentUser);
     $scope.logout = function(){
       User.logout();
     };

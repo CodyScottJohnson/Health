@@ -8,11 +8,14 @@
  * Controller of the Health
  */
 angular.module('Health')
-  .controller('RunningCtrl', function($http, $scope, $document,Data,Functions, Running,$window, $timeout,$interval, $rootScope) {
+  .controller('RunningCtrl', function($http, $scope, $document,Data,Functions, Running,$window, $timeout,$interval, $rootScope, Socket) {
+        $scope.Socket = Socket.data;
+        $scope.SocketFunctions = Socket;
     if($rootScope.currentUser.Token_RunKeeper===""||$rootScope.currentUser.Token_RunKeeper === null || !angular.isDefined($rootScope.currentUser.Token_RunKeeper)){
       Functions.OpenModal('views/Modals/Register/runkeeper.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
     }
-    Functions.OpenModal('views/Modals/Register/fitbit.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
+    //Functions.OpenModal('views/Modals/Register/fitbit.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
+    Functions.OpenModal('views/Modals/Register/strava.html','md',null, 'ModalCtrl',{windowClass: 'notification_modal'});
 
     $scope.Running = Running.data;
     $scope.UpdateAll = function(){
